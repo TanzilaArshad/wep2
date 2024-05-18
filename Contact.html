@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        nav {
+            background-color: #140342;
+            padding: 10px;
+            text-align: center;
+            width: 100%; /* Added to make it span the entire width */
+            position: fixed; /* Added to make it fixed at the top */
+            top: 0; /* Added to position it at the top */
+            z-index: 1000; /* Added to ensure it's on top of other elements */
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: inline-block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin: 0 5px;
+        }
+
+        nav a:hover {
+            background-color: #e4e7eb;
+            color: #0b0c0c;
+            border-radius: 15px;
+        }
+        .contact-container {
+            background-color: #fff;
+            padding: 80px 40px 20px; /* Adjusted padding to create space below the fixed nav */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #490846;
+            padding-bottom: 10px;
+        }
+        h4 {
+            margin: 10px 0;
+            color: #555;
+        }
+        input[type="text"], input[type="tel"], input[type="email"], textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        input[type="button"] {
+            background-color: #140342;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+        input[type="button"]:hover {
+            background-color: #140342;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" target="_blank">Home</a>
+        <a href="About.html" target="_blank">About</a>
+        <a href="Project.html" target="_blank">Projects</a>
+        <a href="Contact.html" target="_blank">Contact</a>
+    </nav>
+    <div class="contact-container">
+        <h2>Contact Us</h2>
+        <h4>Name:</h4>
+        <input type="text" placeholder="Full Name">
+        <h4>Phone:</h4>
+        <input type="tel" placeholder="Ph No">
+        <h4>Email:</h4>
+        <input type="email" placeholder="E-mail">
+        <h4>Message:</h4>
+        <textarea placeholder="Any message" name="Message" id="Message" cols="30" rows="10"></textarea>
+        <input type="button" value="Send Message">
+    </div>
+</body>
+</html>
