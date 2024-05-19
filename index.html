@@ -3,143 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Elsa's Portfolio</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f9f9f9;
-            color: #050303;
+            font-family: 'Arial', sans-serif;
+            background-color: #ffe4e1;
+            color: #333;
             margin: 0;
             padding: 0;
-            
+            animation: fadeIn 1s ease-in-out;
         }
-
-        nav {
-            background-color: #140342;
-            padding: 10px;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .navbar {
+            background-color: #ff69b4;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-brand {
+            font-size: 1.8em;
+            color: #fff;
+            text-decoration: none;
+        }
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+        .header {
             text-align: center;
+            padding: 50px;
+            background-color: #ff69b4;
+            color: #fff;
+            animation: slideIn 1s ease-in-out;
         }
-
-        nav a {
-            color: white;
-            text-decoration:none;
-            padding: 14px 20px;
-            display: inline-block;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            margin: 0 5px;
-        
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
-
-        nav a:hover {
-            background-color: #e4e7eb;
-            color: #0b0c0c;
-            border-radius: 15px;
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 5px solid #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
-
-        h1 {
-            color: #2c3e50;
+        .section {
+            padding: 60px 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            position: relative;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .ribbon {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 40px;
+            background-color: #ffb6c1;
+            color: #fff;
             text-align: center;
-            margin-top: 20px;
-            font-size: 32px;
+            line-height: 40px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
         }
-
-        h2 {
-            color: #494449;
-            border-bottom: 2px solid #140342;
-            padding-bottom: 10px;
-            font-size: 24px;
+        .ribbon:before, .ribbon:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            border: 10px solid #ffb6c1;
+            z-index: -1;
         }
-
-        p {
+        .ribbon:before {
+            left: -10px;
+            border-right-width: 10px;
+            border-left-color: transparent;
+        }
+        .ribbon:after {
+            right: -10px;
+            border-left-width: 10px;
+            border-right-color: transparent;
+        }
+        .about p, .projects p, .contact p {
+            text-align: justify;
             margin: 20px 0;
-            font-size: 1.1em;
-            line-height: 1.6;
         }
-
-        ul {
-            list-style-type: none;
+        .skills ul {
+            list-style: none;
             padding: 0;
         }
-
-        li {
-            background:#eae9ec;
-            margin: 10px 0;
-            padding: 15px;
+        .skills li {
+            background: #ffc0cb;
+            margin: 5px 0;
+            padding: 10px;
             border-radius: 5px;
-            transition: background-color 0.3s ease;
         }
-
-        li:hover {
-            background-color: #bdc3c7;
-        }
-
-        a {
-            text-decoration: none;
-            color: #140342;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: #490846;
-            text-decoration:wavy;
-        }
-
-        .image-container {
-        
+        footer {
             text-align: center;
-            padding: 40px 0;
-            position: relative;
-            margin-bottom: 20px;
+            padding: 20px 0;
+            background-color: #ff69b4;
+            color: #fff;
         }
-
-        .image-container img {
-            border-radius: 50%;
-            border: 5px solid #060707;
-            transition: transform 0.3s ease;
-            width: 200px;
-            height: 200px;
+        .contact-info p {
+            margin: 5px 0;
         }
-
-        .image-container img:hover {
-            transform: scale(1.1);
-        }
-
-        .content {
-            padding: 20px;
+        .contact-info a {
+            color: #ff1493;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html" target="_blank">Home</a>
-        <a href="About.html" target="_blank">About</a>
-        <a href="Project.html" target="_blank">Projects</a>
-        <a href="Contact.html" target="_blank">Contact</a>
+    <nav class="navbar">
+        <a class="navbar-brand" href="#">Elsa's Portfolio</a>
+        <div class="navbar-nav ml-auto">
+            <a class="nav-link" href="#about">About Me</a>
+            <a class="nav-link" href="#skills">Skills</a>
+            <a class="nav-link" href="#projects">Projects</a>
+            <a class="nav-link" href="#contact">Contact</a>
+        </div>
     </nav>
-    
-    <div class="image-container">
+
+    <header class="header">
+        <img src="https://images.rawpixel.com/image_400/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTAzL3JtNjExLXJpYmJvbjAxLTAwMS5qcGc.jpg" alt="Hello Kitty" class="profile-pic">
         <h1>Elsa</h1>
-        <img src="https://media.istockphoto.com/id/1451587807/vector/user-profile-icon-vector-avatar-or-person-icon-profile-picture-portrait-symbol-vector.jpg?s=612x612&w=0&k=20&c=yDJ4ITX1cHMh25Lt1vI1zBn2cAKKAlByHBvPJ8gEiIg=" alt="Profile Picture">
+        <h2>(2021-ag-7744)</h2>
+        <p>Web Developer | Student</p>
+    </header>
+
+    <div class="container">
+        <!-- About Me Section -->
+        <section id="about" class="section about text-center">
+            <div class="ribbon">About Me</div>
+            <p>Hello, I'm Elsa, a passionate web developer and a computer science student. I specialize in building responsive and interactive web applications. </p>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section skills text-center">
+            <div class="ribbon">Skills</div>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Node.js</li>
+                <li>Express.js</li>
+                <li>React</li>
+                <li>Bootstrap</li>
+            </ul>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section projects text-center">
+            <div class="ribbon">Projects</div>
+            <p>See my GitHub account for projects.</p>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact text-center">
+            <div class="ribbon">Contact</div>
+            <p>If you'd like to get in touch, feel free to reach out via email or follow me on my social media channels.</p>
+            <div class="contact-info">
+                <p>Email: elsa@example.com</p>
+                <p>Phone: (123) 456-7890</p>
+                <p>LinkedIn: <a href="#">linkedin.com/in/elsa</a></p>
+                <p>GitHub: <a href="#">github.com/elsa</a></p>
+            </div>
+        </section>
     </div>
-    
-    <div class="content">
-        <h2>Introduction</h2>
-        <p>My name is Elsa.I am a student of computer Sceince.I am interested in learning more about how computers work, how they interact with the human world.I am exited to learn more about this feild and continue contributiong to the world around me through technology.</p>
-        <h2>Personal Info</h2>
-        <ul>
-            <li>Father's Name:Tahir</li>
-            <li>Gender: Female</li>
-            <li>AG NO: 2021-ag-7744</li>
-            <li>Date of Birth: 6 April 2003</li>
-            <li>Phone Number: 0309-0000000</li>
-        </ul>
-        <h2>More</h2>
-        <ul>
-            
-            <li><a href="About.html" target="_blank">About</a></li>
-            <li><a href="Project.html" target="_blank">Projects</a></li>
-            <li><a href="Contact.html" target="_blank">Contact</a></li>
-        </ul>
-    </div>
+
+    <footer>
+        <p>&copy; Made by Elsa | AG Number: 2021-AG-7744</p>
+    </footer>
 </body>
 </html>
